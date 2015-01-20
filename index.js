@@ -213,9 +213,16 @@ function isGenerator(obj) {
  */
 
 function isGeneratorFunction(obj) {
-  var constructor = obj.constructor;
-  return constructor && 'GeneratorFunction' == constructor.name;
+  return obj && obj.constructor == generator.constructor;
 }
+
+/**
+ * Empty generator function for constructor comparison.
+ *
+ * @api private
+ */
+
+function* generator() {}
 
 /**
  * Check for plain object.
